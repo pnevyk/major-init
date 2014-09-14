@@ -1,6 +1,6 @@
 # Major-init
 
-Majordomo command for initialization of a project.
+[Majordomo](https://github.com/nevyk/majordomo) command for initialization of a project.
 
 ## Installation
 
