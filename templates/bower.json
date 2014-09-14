@@ -1,0 +1,15 @@
+{
+  "name": "{{project}}",
+  "authors": ["{{name}} <{{email}}>",]
+  "version": "0.1.0",
+  "description": "{{description}}",{{#main}}
+  "main": "{{{main}}}",{{/main}}{{#repo}}
+  "repository": {
+    "type": "{{repo_type}}",
+    "url": "{{{repo_url}}}"
+  },{{/repo}}
+  "keywords": [{{{keywords}}}],
+  "license": "{{license}}",{{#repo}}
+  "homepage": "{{{repo_url}}}",{{/repo}}
+  "dependencies": {}
+}
