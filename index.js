@@ -2,12 +2,6 @@ var majordomo = require('majordomo');
 var path = require('path');
 
 module.exports = function (config) {
-    function convertArray(array) {
-        return array.length ? '"' + array.join('", "') + '"' : '';
-    }
-    
-    majordomo.setDebugMode();
-    
     majordomo('init', config)
         .ask('checkbox', 'modules', 'What modules do you want?', ['os', 'git', 'npm', 'bower'])
         .branch(function () {
@@ -63,3 +57,7 @@ module.exports = function (config) {
             majordomo.dest.write('.majorfile', majordomo.template(majordomo.src.read('templates/.majorfile'), data));
         });
 };
+
+function convertArray(array) {
+    return array.length ? '"' + array.join('", "') + '"' : '';
+}
