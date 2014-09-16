@@ -13,7 +13,10 @@ module.exports = function (config) {
                 .ask('input', 'email', 'What is your email address?')
                 .ask('input', 'description', 'Tell something about this project')
                 .ask('input', 'keywords', 'Think about some keywords (separated by space)')
-                .ask('input', 'license', 'What license you want?', 'MIT')
+                .ask('list', 'license', 'What license you want?', [
+                    'GPL 2.0', 'MIT', 'Apache 2.0', 'GPL 3.0', 'BSD 2.0',
+                    'Artistic 2.0', 'LPGL 2.1', 'LPGL 3.0', 'Public domain', 'No license'
+                ], 1)
                 .ask('input', 'main', 'What file will be main of your project?');
         })
         .branch('modules:git', function () {
@@ -26,6 +29,7 @@ module.exports = function (config) {
             var data = this.get();
             var modules = data.modules;
             data.modules = convertArray(modules);
+            data.year = (new Date()).getFullYear();
             
             if (data.keywords) {
                 data.keywords = data.keywords.split(' ');
@@ -55,6 +59,7 @@ module.exports = function (config) {
             }
             
             majordomo.dest.write('.majorfile', majordomo.template(majordomo.src.read('templates/.majorfile'), data));
+            majordomo.dest.write('LICENSE', majordomo.template(majordomo.src.read('templates/licenses/' + data.license), data));
         });
 };
 

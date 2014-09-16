@@ -22,6 +22,7 @@ $ majordomo init
 
 - initializes empty Git repository
 - creates .gitignore with node_modules/
+- create LICENSE file with license you chose
 - if you use GitHub it will add remote url to your GitHub repository
 
 ### npm
