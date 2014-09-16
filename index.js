@@ -13,12 +13,12 @@ module.exports = function (config) {
                 .ask('input', 'email', 'What is your email address?')
                 .ask('input', 'description', 'Tell something about this project')
                 .ask('input', 'keywords', 'Think about some keywords (separated by space)')
-                .ask('list', 'license', 'What license you want?', [
-                    'GPL 2.0', 'MIT', 'Apache 2.0', 'GPL 3.0', 'BSD 2.0',
-                    'Artistic 2.0', 'LPGL 2.1', 'LPGL 3.0', 'Public domain', 'No license'
-                ], 1)
                 .ask('input', 'main', 'What file will be main of your project?');
         })
+        .ask('list', 'license', 'What license you want?', [
+            'GPL 2.0', 'MIT', 'Apache 2.0', 'GPL 3.0', 'BSD 2.0',
+            'Artistic 2.0', 'LPGL 2.1', 'LPGL 3.0', 'Public domain', 'No license'
+        ], 1)
         .branch('modules:git', function () {
             this.ask('confirm', 'github', 'Do you use GitHub?')
                 .branch('github', function () {
