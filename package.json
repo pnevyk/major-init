@@ -1,7 +1,7 @@
 {
   "name": "major-init",
   "author": "Petr Nevyhostěný <petr.nevyhosteny@gmail.com>",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Majordomo command for initialization of a project",
   "main": "index.js",
   "scripts": {},
