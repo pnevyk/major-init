@@ -22,7 +22,10 @@ module.exports = function (config) {
         .branch('modules:git', function () {
             this.ask('confirm', 'github', 'Do you use GitHub?')
                 .branch('github', function () {
-                    this.ask('input', 'github_username', 'What is your GitHub username?');
+                    this.ask('input', 'github_username', 'What is your GitHub username?')
+                        .branch('!project', function () {
+                        this.ask('input', 'project', 'What is the name of GitHub repository?');
+                    });
                 });
         })
         .run(function () {
@@ -46,7 +49,7 @@ module.exports = function (config) {
                     data.repo_url = 'https://github.com/' + data.github_username + '/' + data.project;
                     data.bugs = data.repo_url + '/issues';
                     
-                    majordomo.exec('git remote add origin ' + data.repo_url);
+                    majordomo.exec('git remote add origin git@github.com:' + data.github_username + '/' + data.project + '.git');
                 }
             }
             
