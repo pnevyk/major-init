@@ -21,7 +21,7 @@ $ majordomo init
 ### git
 
 - initializes empty Git repository
-- creates .gitignore with node_modules/
+- creates .gitignore with `node_modules/` and `.majorfile`
 - create LICENSE file with license you chose
 - if you use GitHub it will add remote url to your GitHub repository
 

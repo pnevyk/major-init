@@ -38,7 +38,7 @@ module.exports = function (config) {
             
             if (modules.indexOf('git') !== -1) {
                 majordomo.exec('git init');
-                majordomo.dest.write('.gitignore', 'node_modules/');
+                majordomo.dest.write('.gitignore', 'node_modules/\n.majorfile');
                 
                 if (data.github) {
                     data.repo = true;
