@@ -5,7 +5,7 @@
 ## Installation
 
 ```bash
-$ npm install major-init
+$ npm install -g major-init
 ```
 
 ## Usage
